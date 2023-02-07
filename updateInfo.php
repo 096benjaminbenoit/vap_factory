@@ -17,13 +17,27 @@ catch (Exception $e)
 }
 // si tout va bien , on peut continuer 
 
+
+// mise a jour des cigarettes electronique 
+if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['description']) && isset ($_POST['prix_achat_unitaire']) && isset ($_POST['prix_vente_unitaire']) && isset ($_POST['quantite'])){
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    
+    $sql = "UPDATE `Cigarette_electronique` SET `reference` = " .$_POST['reference']. ", `nom` = '" .$_POST['nom']. "', `description` = '" .$_POST['description']. "', `prix_achat_unitaire` = " .$_POST['prix_achat_unitaire'] .", `prix_vente_unitaire` = " .$_POST['prix_vente_unitaire'] .", `quantite` = ".$_POST['quantite'] ." WHERE `Cigarette_electronique`.`Id` = 1;";
+    
+    // je met en commentaire les var-dump
+    // var_dump($sql);
+    $pdostmt = $db->prepare($sql);
+    $pdostmt->execute();  
+}
 // je recupere les infos de la base de donnée 
 $cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
 $cigaretteStatement->execute();
 $Cigarette_electronique = $cigaretteStatement->fetch();
-var_dump($Cigarette_electronique);
-
-
+// echo '<pre>';
+// print_r($Cigarette_electronique);
+// echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,18 +52,18 @@ var_dump($Cigarette_electronique);
     <header class="header">
         <h1 class="header__title">VAP FACTORY</h1>
     </header>
-    <form class="newProduct" action="">
+    <form class="newProduct" method="POST">
         <div class="newProduct_bloc1">
-            <input class="newProduct_bloc1__ref" type="text" placeholder="Référence" value="<?php echo $Cigarette_electronique['reference']; ?>">
-            <input class="newProduct_bloc1__name" type="text" placeholder="Nom" value="<?php echo $Cigarette_electronique['nom']; ?>" >
+            <input name="reference" class="newProduct_bloc1__ref" type="text" placeholder="Référence" value="<?php echo $Cigarette_electronique['reference']; ?>">
+            <input name="nom" class="newProduct_bloc1__name" type="text" placeholder="Nom" value="<?php echo $Cigarette_electronique['nom']; ?>" >
         </div>
-        <input class="newProduct_bloc2__resume" type="text" placeholder="Description" value="<?php echo $Cigarette_electronique['description']; ?>">
+        <input name="description" class="newProduct_bloc2__resume" type="text" placeholder="Description" value="<?php echo $Cigarette_electronique['description']; ?>">
         <div class="newProduct_bloc3">
-            <input class="newProduct_bloc3__purchasePrice" type="text" placeholder="Prix d'achat" value="<?php echo $Cigarette_electronique['prix_achat_unitaire']; ?>">
-            <input class="newProduct_bloc3__sellingPrice" type="text" placeholder="Prix de vente" value="<?php echo $Cigarette_electronique['prix_vente_unitaire']; ?>">
+            <input name="prix_achat_unitaire" class="newProduct_bloc3__purchasePrice" type="text" placeholder="Prix d'achat" value="<?php echo $Cigarette_electronique['prix_achat_unitaire']; ?>">
+            <input name="prix_vente_unitaire" class="newProduct_bloc3__sellingPrice" type="text" placeholder="Prix de vente" value="<?php echo $Cigarette_electronique['prix_vente_unitaire']; ?>">
         </div>
         <div class="newProduct_bloc4">
-            <input class="newProduct_bloc4__stock" type="text" placeholder="Stock" value="<?php echo $Cigarette_electronique['quantite']; ?>">
+            <input name="quantite" class="newProduct_bloc4__stock" type="text" placeholder="Stock" value="<?php echo $Cigarette_electronique['quantite']; ?>">
             <button class="newProduct_bloc4__btnAdd" class="btnAjout">AJOUTER</button>
         </div>
     </form>
