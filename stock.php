@@ -49,13 +49,6 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <td><?= $data['prix_vente_unitaire'] ?>€</td>
                     <td><?= $data['quantite'] ?></td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>         
-                </tr>
                 <?php } ?>
             </tbody>
         </table>
