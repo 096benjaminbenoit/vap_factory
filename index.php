@@ -20,8 +20,10 @@ $name = $_GET["name"] ?? null;
 $resume = $_GET["resume"] ?? null;
 $purchasePrice = $_GET["purchasePrice"] ?? null;
 $sellingPrice = $_GET["sellingPrice"] ?? null;
+$stock = $_GET["stock"] ?? null;
 
-$sql = "INSERT INTO 'Cigarette_eletronique' ('reference', 'nom', 'description', 'prix_achat_unitaire', 'prix_vente_unitaire') VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice';)";
+$sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `stock`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
+var_dump($sql);
 
 ?><!DOCTYPE html>
 <html lang="fr">
