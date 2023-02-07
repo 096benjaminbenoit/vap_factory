@@ -7,7 +7,7 @@ $password = "root";
 
 try
 {
-    $con = new PDO("mysql:host=$servername;$database", $username, $password);
+    $con = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (PDOException $e)
@@ -22,8 +22,23 @@ $purchasePrice = $_GET["purchasePrice"] ?? null;
 $sellingPrice = $_GET["sellingPrice"] ?? null;
 $stock = $_GET["stock"] ?? null;
 
-$sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `stock`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
+$sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
 var_dump($sql);
+try {
+
+    $pdostmt = $con->prepare($sql);
+    $pdostmt->execute();  
+}
+catch (PDOException $e)
+{
+        echo "Connection Failed" .$e->getMessage();
+}
+
+
+// je recupere les infos de la base de donnée 
+// $cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
+// $cigaretteStatement->execute();
+// $Cigarette_electronique = $cigaretteStatement->fetch();
 
 ?><!DOCTYPE html>
 <html lang="fr">
