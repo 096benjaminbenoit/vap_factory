@@ -8,22 +8,22 @@
     <title>VAP FACTORY</title>
 </head>
 <body>
-    <header>
-        <h1>VAP FACTORY</h1>
+    <header class="header">
+        <h1 class="header__title">VAP FACTORY</h1>
     </header>
-    <form action="">
-        <div>
-            <input type="text">
-            <input type="text">
+    <form class="newProduct" action="">
+        <div class="newProduct_bloc1">
+            <input class="newProduct_bloc1__ref" type="text" placeholder="Référence">
+            <input class="newProduct_bloc1__name" type="text" placeholder="Nom">
         </div>
-        <input type="text">
-        <div>
-            <input type="text">
-            <input type="text">
+        <input class="newProduct_bloc2__resume" type="text" placeholder="Description">
+        <div class="newProduct_bloc3">
+            <input class="newProduct_bloc3__purchasePrice" type="text" placeholder="Prix d'achat">
+            <input class="newProduct_bloc3__sellingPrice" type="text" placeholder="Prix de vente">
         </div>
-        <div>
-            <input type="text">
-            <button>AJOUTER</button>
+        <div class="newProduct_bloc4">
+            <input class="newProduct_bloc4__stock" type="text" placeholder="Stock">
+            <button class="newProduct_bloc4__btnAdd" class="btnAjout">AJOUTER</button>
         </div>
     </form>
 </body>
