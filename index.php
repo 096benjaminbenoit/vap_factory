@@ -8,6 +8,23 @@
     <title>VAP FACTORY</title>
 </head>
 <body>
-    
+    <header>
+        <h1>VAP FACTORY</h1>
+    </header>
+    <form action="">
+        <div>
+            <input type="text">
+            <input type="text">
+        </div>
+        <input type="text">
+        <div>
+            <input type="text">
+            <input type="text">
+        </div>
+        <div>
+            <input type="text">
+            <button>AJOUTER</button>
+        </div>
+    </form>
 </body>
 </html>
