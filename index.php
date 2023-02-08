@@ -15,7 +15,6 @@ catch (PDOException $e)
         echo "Connection Failed" .$e->getMessage();
 }
 
-
 $reference = $_GET["reference"] ?? null;
 $name = $_GET["name"] ?? null;
 $resume = $_GET["resume"] ?? null;
@@ -24,6 +23,7 @@ $sellingPrice = $_GET["sellingPrice"] ?? null;
 $stock = $_GET["stock"] ?? null;
 
 $sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
+
 try {
     
     $pdostmt = $con->prepare($sql);
@@ -75,6 +75,7 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <th scope="col">STOCK</th>
                     <th scope="col">AJOUTER</th>
                     <th scope="col">RETIRER</th>
+                    <th scope="col">EDITER</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,6 +88,7 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <td><?= $data['quantite'] ?></td>
                     <td><a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+</a></td>
                     <td><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-</a></td>
+                    <td><a href="updateInfo.php?id=<?= $data['Id']?>">✏️</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
