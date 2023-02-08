@@ -15,6 +15,7 @@ catch (PDOException $e)
         echo "Connection Failed" .$e->getMessage();
 }
 
+
 $reference = $_GET["reference"] ?? null;
 $name = $_GET["name"] ?? null;
 $resume = $_GET["resume"] ?? null;
@@ -34,11 +35,7 @@ catch (PDOException $e)
         echo "Connection Failed" .$e->getMessage();
 }
 
-
-// je recupere les infos de la base de donnée 
-// $cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
-// $cigaretteStatement->execute();
-// $Cigarette_electronique = $cigaretteStatement->fetch();
+$queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -68,5 +65,29 @@ catch (PDOException $e)
             <button type="submit" class="newProduct_bloc4__btnAdd" class="btnAjout">AJOUTER</button>
         </div>
     </form>
+    <div class="stock">
+    <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Référence</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix d'achat</th>
+                    <th scope="col">Prix de vente</th>
+                    <th scope="col">Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($data = $queryAll->fetch()) { ?>
+                <tr>
+                    <td><?= $data['reference'] ?></td>
+                    <td><?= $data['nom'] ?></td>
+                    <td><?= $data['prix_achat_unitaire'] ?>€</td>
+                    <td><?= $data['prix_vente_unitaire'] ?>€</td>
+                    <td><?= $data['quantite'] ?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
