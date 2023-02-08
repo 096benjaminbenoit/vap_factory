@@ -24,7 +24,7 @@ $sellingPrice = $_GET["sellingPrice"] ?? null;
 $stock = $_GET["stock"] ?? null;
 
 $sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
-var_dump($sql);
+
 try {
 
     $pdostmt = $con->prepare($sql);
@@ -66,14 +66,14 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
         </div>
     </form>
     <div class="stock">
-    <table class="table">
+    <table>
             <thead>
-                <tr>
-                    <th scope="col">Référence</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prix d'achat</th>
-                    <th scope="col">Prix de vente</th>
-                    <th scope="col">Stock</th>
+                <tr class="stock_tr">
+                    <th scope="col">REF</th>
+                    <th scope="col">NOM</th>
+                    <th scope="col">PA</th>
+                    <th scope="col">PV</th>
+                    <th scope="col">STOCK</th>
                 </tr>
             </thead>
             <tbody>
