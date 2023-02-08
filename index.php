@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$database = "vap_factory";
-$username = "root";
-$password = "root";
+$database = "Vap_Factory";
+$username = "admin";
+$password = "adminpwd";
 
 try
 {
@@ -36,9 +36,9 @@ catch (PDOException $e)
 
 
 // je recupere les infos de la base de donnée 
-// $cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
-// $cigaretteStatement->execute();
-// $Cigarette_electronique = $cigaretteStatement->fetch();
+$cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
+$cigaretteStatement->execute();
+$Cigarette_electronique = $cigaretteStatement->fetch();
 
 ?><!DOCTYPE html>
 <html lang="fr">

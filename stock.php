@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$database = "vap_factory";
-$username = "root";
-$password = "root";
+$database = "Vap_Factory";
+$username = "admin";
+$password = "adminpwd";
 
 try
 {
@@ -16,7 +16,9 @@ catch (PDOException $e)
 }
 
 $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
-
+// il faudrait que tout ce qui soit dans la page stock se retrouve dans la page index
+// il faut dans la page index un lien qui envoi sur le formulaire d'ajout que la page 
+// index soit la page stock et la page stock soit l'ajout d'un produit 
 ?><!doctype html>
 <html lang="fr">
   <head>
@@ -42,12 +44,21 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
             </thead>
             <tbody>
                 <?php while($data = $queryAll->fetch()) { ?>
+                  <?php var_dump($data) ?>
                 <tr>
                     <td><?= $data['reference'] ?></td>
                     <td><?= $data['nom'] ?></td>
                     <td><?= $data['prix_achat_unitaire'] ?>€</td>
                     <td><?= $data['prix_vente_unitaire'] ?>€</td>
                     <td><?= $data['quantite'] ?></td>
+
+                    <td>
+                      <!-- je cree un lien pour ajouter 1 stock   -->
+                      <!-- dans chaque lien je donne l'Id et l'action  -->
+                      <a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+1</a>
+                      <!-- je crée un lien pour retirer un stock  -->
+                      <a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-1</a>
+                    </td>
                 </tr>
                 <?php } ?>
             </tbody>

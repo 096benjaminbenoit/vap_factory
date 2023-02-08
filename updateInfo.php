@@ -20,9 +20,9 @@ catch (Exception $e)
 
 // mise a jour des cigarettes electronique 
 if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['description']) && isset ($_POST['prix_achat_unitaire']) && isset ($_POST['prix_vente_unitaire']) && isset ($_POST['quantite'])){
-    // echo '<pre>';
-    // print_r($_POST);
-    // echo '</pre>';
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
     
     $sql = "UPDATE `Cigarette_electronique` SET `reference` = " .$_POST['reference']. ", `nom` = '" .$_POST['nom']. "', `description` = '" .$_POST['description']. "', `prix_achat_unitaire` = " .$_POST['prix_achat_unitaire'] .", `prix_vente_unitaire` = " .$_POST['prix_vente_unitaire'] .", `quantite` = ".$_POST['quantite'] ." WHERE `Cigarette_electronique`.`Id` = 1;";
     
@@ -35,9 +35,9 @@ if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['descr
 $cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
 $cigaretteStatement->execute();
 $Cigarette_electronique = $cigaretteStatement->fetch();
-// echo '<pre>';
-// print_r($Cigarette_electronique);
-// echo '</pre>';
+echo '<pre>';
+print_r($Cigarette_electronique);
+echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
