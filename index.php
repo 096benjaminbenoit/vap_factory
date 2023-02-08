@@ -21,19 +21,23 @@ $resume = $_GET["resume"] ?? null;
 $purchasePrice = $_GET["purchasePrice"] ?? null;
 $sellingPrice = $_GET["sellingPrice"] ?? null;
 $stock = $_GET["stock"] ?? null;
-
-$sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
-
-try {
+if(!empty($reference) && !empty($name) && !empty($resume) && !empty($purchasePrice) && !empty($sellingPrice) && !empty($stock)) {
     
-    $pdostmt = $con->prepare($sql);
-    $pdostmt->execute();  
+    
+    
+    $sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
+    
+    try {
+        
+        $pdostmt = $con->prepare($sql);
+        $pdostmt->execute();  
+    }
+    catch (PDOException $e)
+    {
+        echo "Connection Failed" .$e->getMessage();
+    }
+    
 }
-catch (PDOException $e)
-{
-    echo "Connection Failed" .$e->getMessage();
-}
-
 $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
 
 ?><!DOCTYPE html>
