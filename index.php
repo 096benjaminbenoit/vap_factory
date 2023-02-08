@@ -74,6 +74,8 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <th scope="col">PA</th>
                     <th scope="col">PV</th>
                     <th scope="col">STOCK</th>
+                    <th scope="col">AJOUTER</th>
+                    <th scope="col">RETIRER</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +86,8 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <td><?= $data['prix_achat_unitaire'] ?>€</td>
                     <td><?= $data['prix_vente_unitaire'] ?>€</td>
                     <td><?= $data['quantite'] ?></td>
+                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+1</a></td>
+                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-1</a></td>
                 </tr>
                 <?php } ?>
             </tbody>

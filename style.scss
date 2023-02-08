@@ -189,3 +189,21 @@ td {
     border-top: 1px solid black;
     padding: 5px 8px;
 }
+
+a {
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #CC0000;
+        color: white;
+    }
+}
