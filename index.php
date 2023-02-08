@@ -24,15 +24,14 @@ $sellingPrice = $_GET["sellingPrice"] ?? null;
 $stock = $_GET["stock"] ?? null;
 
 $sql = "INSERT INTO `Cigarette_electronique` (`reference`, `nom`, `description`, `prix_achat_unitaire` ,`prix_vente_unitaire`, `quantite`) VALUES ('$reference', '$name', '$resume', '$purchasePrice', '$sellingPrice', '$stock')";
-
 try {
-
+    
     $pdostmt = $con->prepare($sql);
     $pdostmt->execute();  
 }
 catch (PDOException $e)
 {
-        echo "Connection Failed" .$e->getMessage();
+    echo "Connection Failed" .$e->getMessage();
 }
 
 $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
@@ -86,8 +85,8 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <td><?= $data['prix_achat_unitaire'] ?>€</td>
                     <td><?= $data['prix_vente_unitaire'] ?>€</td>
                     <td><?= $data['quantite'] ?></td>
-                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+1</a></td>
-                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-1</a></td>
+                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+</a></td>
+                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
