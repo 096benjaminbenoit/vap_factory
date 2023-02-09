@@ -77,22 +77,24 @@ $queryAll = $con->query("SELECT * FROM `Cigarette_electronique`");
                     <th scope="col">PA</th>
                     <th scope="col">PV</th>
                     <th scope="col">STOCK</th>
-                    <th scope="col">AJOUTER</th>
-                    <th scope="col">RETIRER</th>
+                    <th scope="col">STOCK +</th>
+                    <th scope="col">STOCK -</th>
                     <th scope="col">EDITER</th>
+                    <th scope="col">SUPPRIMER</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while($data = $queryAll->fetch()) { ?>
                 <tr>
-                    <td><?= $data['reference'] ?></td>
-                    <td><?= $data['nom'] ?></td>
-                    <td><?= $data['prix_achat_unitaire'] ?>€</td>
-                    <td><?= $data['prix_vente_unitaire'] ?>€</td>
-                    <td><?= $data['quantite'] ?></td>
-                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=increment">+</a></td>
-                    <td><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement">-</a></td>
-                    <td><a href="updateInfo.php?id=<?= $data['Id']?>">✏️</a></td>
+                    <td data-label="REF"><?= $data['reference'] ?></td>
+                    <td data-label="NOM"><?= $data['nom'] ?></td>
+                    <td data-label="PA"><?= $data['prix_achat_unitaire'] ?>€</td>
+                    <td data-label="PV"><?= $data['prix_vente_unitaire'] ?>€</td>
+                    <td data-label="STOCK"><?= $data['quantite'] ?></td>
+                    <td data-label="STOCK +"><a href="updateStock.php?id=<?= $data['Id']?>&action=increment"><button class="positive">+</button></a></td>
+                    <td data-label="STOCK -"><a href="updateStock.php?id=<?= $data['Id']?>&action=decrement"><button class="negative">-</button></a></td>
+                    <td data-label="EDITER"><a href="updateInfo.php?id=<?= $data['Id']?>">✏️</a></td>
+                    <td data-label="SUPPRIMER"><a href="remove.php?id=<?= $data['Id']?>">🗑️</a></td>
                 </tr>
                 <?php } ?>
             </tbody>

@@ -27,6 +27,8 @@ if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['descr
     // var_dump($sql);
     $pdostmt = $con->prepare($sql);
     $pdostmt->execute(); 
+
+     header('Location: index.php');
     };
 
 // je recupere les infos de la base de donnée 
@@ -65,6 +67,7 @@ $Cigarette_electronique = $queryAll->fetch();
             <input name="quantite" class="newProduct_bloc4__stock" type="text" placeholder="Stock" value="<?php echo $Cigarette_electronique['quantite']; ?>">
             <button class="newProduct_bloc4__btnAdd" class="btnAjout">MODIFIER</button>
         </div>
+        
     </form>
 </body>
 </html>
