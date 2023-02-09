@@ -38,7 +38,6 @@ html {
 .newProduct_bloc1__ref {
   width: 150px;
   border: none;
-  border-radius: 20px;
   margin: 5px 3px;
   height: 25px;
   transition: all 0.2s ease;
@@ -46,7 +45,7 @@ html {
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc1__ref {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
@@ -54,14 +53,13 @@ html {
   width: 150px;
   margin: 5px 3px;
   border: none;
-  border-radius: 20px;
   height: 25px;
   transition: all 0.2s ease;
   text-indent: 15px;
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc1__name {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
@@ -69,14 +67,13 @@ html {
   width: 306px;
   height: 100px;
   border: none;
-  border-radius: 20px;
   margin: 5px 0px;
   transition: all 0.2s ease;
   text-indent: 15px;
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc2__resume {
-    width: 406px;
+    width: 606px;
   }
 }
 .newProduct_bloc3 {
@@ -87,14 +84,13 @@ html {
   width: 150px;
   margin: 5px 3px;
   border: none;
-  border-radius: 20px;
   transition: all 0.2s ease;
   height: 25px;
   text-indent: 15px;
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc3__purchasePrice {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
@@ -102,14 +98,13 @@ html {
   width: 150px;
   margin: 5px 3px;
   border: none;
-  border-radius: 20px;
   transition: all 0.2s ease;
   height: 25px;
   text-indent: 15px;
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc3__sellingPrice {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
@@ -123,19 +118,17 @@ html {
   border: none;
   height: 25px;
   transition: all 0.2s ease;
-  border-radius: 20px;
   text-indent: 15px;
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc4__stock {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
 .newProduct_bloc4__btnAdd {
   width: 150px;
   border: none;
-  border-radius: 20px;
   margin: 5px 3px;
   background-color: #CC0000;
   color: white;
@@ -144,7 +137,7 @@ html {
 }
 @media screen and (min-width: 768px) {
   .newProduct_bloc4__btnAdd {
-    width: 200px;
+    width: 300px;
     height: 30px;
   }
 }
@@ -166,7 +159,6 @@ a:hover {
   height: 25px;
   border: none;
   background-color: #CC0000;
-  border-radius: 5px;
   color: white;
   font-size: 20px;
   transition: all 0.3s ease;
@@ -182,7 +174,6 @@ a:hover {
   height: 25px;
   border: none;
   background-color: green;
-  border-radius: 5px;
   color: white;
   transition: all 0.3s ease;
 }

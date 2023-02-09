@@ -40,14 +40,14 @@ html {
         &__ref {
             width: 150px;
             border: none;
-            border-radius: 20px;
+            
             margin: 5px 3px;
             height: 25px;
             transition: all 0.2s ease;
             text-indent: 15px;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
         }
@@ -56,13 +56,13 @@ html {
             width: 150px;
             margin: 5px 3px;
             border: none;
-            border-radius: 20px;
+            
             height: 25px;
             transition: all 0.2s ease;
             text-indent: 15px;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
         }
@@ -72,13 +72,13 @@ html {
         width: 306px;
         height: 100px;
         border: none;
-        border-radius: 20px;
+        
         margin: 5px 0px;
         transition: all 0.2s ease;
         text-indent: 15px;
 
         @media screen and (min-width: 768px) {
-            width: 406px;
+            width: 606px;
         }
     }
 
@@ -90,13 +90,13 @@ html {
             width: 150px;
             margin: 5px 3px;
             border: none;
-            border-radius: 20px;
+            
             transition: all 0.2s ease;
             height: 25px;
             text-indent: 15px;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
         }
@@ -105,13 +105,13 @@ html {
             width: 150px;
             margin: 5px 3px;
             border: none;
-            border-radius: 20px;
+            
             transition: all 0.2s ease;
             height: 25px;
             text-indent: 15px;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
         }
@@ -127,11 +127,11 @@ html {
             border: none;
             height: 25px;
             transition: all 0.2s ease;
-            border-radius: 20px;
+            
             text-indent: 15px;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
         }
@@ -139,7 +139,7 @@ html {
         &__btnAdd {
             width: 150px;
             border: none;
-            border-radius: 20px;
+            
             margin: 5px 3px;
             background-color: #CC0000;
             color: white;
@@ -147,7 +147,7 @@ html {
             transition: all 0.2s ease;
 
             @media screen and (min-width: 768px) {
-                width: 200px;
+                width: 300px;
                 height: 30px;
             }
             
@@ -173,7 +173,6 @@ a {
     height: 25px;
     border: none;
     background-color: #CC0000;
-    border-radius: 5px;
     color: white;
     font-size: 20px;
     transition: all 0.3s ease;
@@ -190,7 +189,6 @@ a {
     height: 25px;
     border: none;
     background-color: green;
-    border-radius: 5px;
     color: white;
     transition: all 0.3s ease;
 
