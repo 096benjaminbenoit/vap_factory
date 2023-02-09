@@ -1,43 +1,45 @@
 <?php
-// je me connecte a Mysql 
+
+$servername = "localhost";
+$database = "vap_factory";
+$username = "root";
+$password = "root";
 
 try
 {
-    $db = new PDO(
-            'mysql:host=localhost:3306;dbname=Vap_Factory;charset=utf8',
-            'admin',
-            'adminpwd'
-    );
-
+    $con = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-// en cas d'erreur, on affiche un message et on arrete tout 
-catch (Exception $e)
+catch (PDOException $e)
 {
-        die('Erreur : ' . $e->getMessage());
+        echo "Connection Failed" .$e->getMessage();
 }
 // si tout va bien , on peut continuer 
 
+$id = $_GET['id'];
 
 // mise a jour des cigarettes electronique 
 if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['description']) && isset ($_POST['prix_achat_unitaire']) && isset ($_POST['prix_vente_unitaire']) && isset ($_POST['quantite'])){
     // echo '<pre>';
     // print_r($_POST);
     // echo '</pre>';
-    
-    $sql = "UPDATE `Cigarette_electronique` SET `reference` = " .$_POST['reference']. ", `nom` = '" .$_POST['nom']. "', `description` = '" .$_POST['description']. "', `prix_achat_unitaire` = " .$_POST['prix_achat_unitaire'] .", `prix_vente_unitaire` = " .$_POST['prix_vente_unitaire'] .", `quantite` = ".$_POST['quantite'] ." WHERE `Cigarette_electronique`.`Id` = 1;";
-    
+    $sql = "UPDATE Cigarette_electronique SET reference = " .$_POST['reference']. ", nom = '" .$_POST['nom']. "', description = '" .$_POST['description']. "', prix_achat_unitaire = " .$_POST['prix_achat_unitaire'] .", prix_vente_unitaire = " .$_POST['prix_vente_unitaire'] .", quantite = ".$_POST['quantite'] . " WHERE Cigarette_electronique.Id = '$id'";
     // je met en commentaire les var-dump
     // var_dump($sql);
-    $pdostmt = $db->prepare($sql);
-    $pdostmt->execute();  
-}
+    $pdostmt = $con->prepare($sql);
+    $pdostmt->execute(); 
+
+     header('Location: index.php');
+    };
+
 // je recupere les infos de la base de donnée 
-$cigaretteStatement = $db->prepare('SELECT * FROM Cigarette_electronique');
-$cigaretteStatement->execute();
-$Cigarette_electronique = $cigaretteStatement->fetch();
+$queryAll = $con->prepare("SELECT * FROM Cigarette_electronique WHERE id = $id");
+$queryAll->execute();
+$Cigarette_electronique = $queryAll->fetch();
 // echo '<pre>';
 // print_r($Cigarette_electronique);
 // echo '</pre>';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -64,7 +66,7 @@ $Cigarette_electronique = $cigaretteStatement->fetch();
         </div>
         <div class="newProduct_bloc4">
             <input name="quantite" class="newProduct_bloc4__stock" type="text" placeholder="Stock" value="<?php echo $Cigarette_electronique['quantite']; ?>">
-            <button class="newProduct_bloc4__btnAdd" class="btnAjout">AJOUTER</button>
+            <button class="newProduct_bloc4__btnAdd" class="btnAjout">MODIFIER</button>
         </div>
     </form>
 </body>
