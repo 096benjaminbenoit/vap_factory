@@ -17,6 +17,7 @@ catch (PDOException $e)
 // si tout va bien , on peut continuer 
 
 $id = $_GET['id'];
+
 // mise a jour des cigarettes electronique 
 if (isset ($_POST['reference']) && isset ($_POST['nom']) && isset ($_POST['description']) && isset ($_POST['prix_achat_unitaire']) && isset ($_POST['prix_vente_unitaire']) && isset ($_POST['quantite'])){
     // echo '<pre>';
@@ -67,7 +68,6 @@ $Cigarette_electronique = $queryAll->fetch();
             <input name="quantite" class="newProduct_bloc4__stock" type="text" placeholder="Stock" value="<?php echo $Cigarette_electronique['quantite']; ?>">
             <button class="newProduct_bloc4__btnAdd" class="btnAjout">MODIFIER</button>
         </div>
-        
     </form>
 </body>
 </html>
